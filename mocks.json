@@ -1,0 +1,49 @@
+{
+    "id": 0,
+    "inscricao": "0000123",
+    "nome": "Maria da Silva",
+    "nascimento": "19/02/1991",
+    "celular": "(11) 96966-0123",
+    "genero": "F",
+    "cpf": 12345678901,
+    "observacao": "-",
+    "endereco": {
+        "logradouro": "Rua Mario Luigi Souza",
+        "cep": "08230-030",
+        "bairro": "Campo Alegre",
+        "uf": "MG",
+        "numero": "123",
+        "complemento": "-"
+    },
+    "anamnese": {
+        "queixa_principal": "Dores constantes de cabeça",
+        "historia_doenca_atual": "N/C",
+        "alergias": "N/C",
+        "medicamentos": "N/C",
+        "doencas_anteriores": "N/C"
+    },
+    "exame_fisico": {
+        "peso": "58 kg",
+        "altura": "164 cm",
+        "temparatura": "36",
+        "imc": "21.6 kg/m2",
+        "frequencia_respiratoria": "50.00 bpm"
+    },
+    "exames": [
+        {
+            "nome": "Hemograma"
+        },
+        {
+            "nome": "Colesterol"
+        },
+        {
+            "nome": "Papanicolau"
+        },
+        {
+            "nome": "Glicemia"
+        },
+        {
+            "nome": "Transaminases"
+        }
+    ]
+}
