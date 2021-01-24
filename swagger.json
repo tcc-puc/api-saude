@@ -1,0 +1,180 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API saúde - prefeitura de Bom Destino",
+    "description": "API saúde fornece os dados de saúde para ser consumido nas aplicações da prefeitura.",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3032",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Prontuário",
+      "description": "Dados de prontuário dos cidadãos."
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+
+  "paths": {
+    "/prontuario/{cpf}": {
+      "get": {
+        "tags": ["Prontuário"],
+        "summary": "Retorna prontuário de um usuário",
+        "parameters": [
+          {
+            "name": "cpf",
+            "in": "path",
+            "description": "número",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Prontuario"
+            }
+          },
+          "404": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Prontuario": {
+      "required": ["id", "nome", "cpf"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "uniqueItems": true
+        },
+        "inscricao": {
+          "type": "string"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "nascimento": {
+          "type": "string"
+        },
+        "celular": {
+          "type": "string"
+        },
+        "genero": {
+          "type": "string"
+        },
+        "cpf": {
+          "type": "integer"
+        },
+        "observacao": {
+          "type": "integer"
+        },
+        "endereco": {
+          "type": "object",
+          "properties": {
+            "logradouro": {
+              "type": "string"
+            },
+            "cep": {
+              "type": "string"
+            },
+            "bairro": {
+              "type": "string"
+            },
+            "uf": {
+              "type": "string"
+            },
+            "numero": {
+              "type": "string"
+            },
+            "complemento": {
+              "type": "string"
+            }
+          }
+        },
+        "anamnese": {
+          "type": "object",
+          "properties": {
+            "queixa_principal": {
+              "type": "string"
+            },
+            "historia_doenca_atual": {
+              "type": "string"
+            },
+            "alergias": {
+              "type": "string"
+            },
+            "medicamentos": {
+              "type": "string"
+            },
+            "doencas_anteriores": {
+              "type": "string"
+            }
+          }
+        },
+        "exame_fisico": {
+          "type": "object",
+          "properties": {
+            "peso": {
+              "type": "string"
+            },
+            "altura": {
+              "type": "string"
+            },
+            "temparatura": {
+              "type": "string"
+            },
+            "imc": {
+              "type": "string"
+            },
+            "frequencia_respiratoria": {
+              "type": "string"
+            }
+          }
+        },
+        "exames": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nome": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "required": ["error", "message", "detail", "help"],
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "help": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

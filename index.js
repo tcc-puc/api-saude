@@ -6,6 +6,14 @@ const server = express();
 server.use(express.json());
 
 /**
+ * Swagger config
+ */
+const swaggerUi = require('swagger-ui-express'),
+swaggerDocument = require('./swagger.json');
+
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+/**
  * Prometheus config
  */
 const client = require('prom-client');
